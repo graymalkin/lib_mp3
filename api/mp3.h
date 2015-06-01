@@ -97,6 +97,10 @@ enum mad_flow {
 /**
  * MP3 Decoder
  */
+#if __XC__
 int mp3_decode(chanend mp3_chan, chanend pcm_chan);
+#else
+int mp3_decode(unsigned mp3_chan, unsigned pcm_chan);
+#endif
 
 #endif
