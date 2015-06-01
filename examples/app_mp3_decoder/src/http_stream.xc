@@ -2,7 +2,9 @@
  * http_stream.xc
  *
  *  Created on: 11 May 2015
- *      Author: simonc
+ *      Author: Simon Cooksey
+ *
+ *  -*- mode: xc;-*-
  */
 
 #include <print.h>

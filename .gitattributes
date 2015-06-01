@@ -1,1 +1,2 @@
 api/mp3.h linguist-language=xc
+examples/app_mp3_decoder/src/*.h linguist-language=xc

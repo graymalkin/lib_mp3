@@ -2,7 +2,9 @@
  * app_mp3_decoder.xc
  *
  *  Created on: 6 May 2015
- *      Author: simonc
+ *      Author: Simon Cooksey
+ *
+ *  -*- mode: xc;-*-
  */
 
 #include <xs1.h>

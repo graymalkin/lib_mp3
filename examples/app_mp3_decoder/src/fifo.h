@@ -3,6 +3,8 @@
 // University of Illinois/NCSA Open Source License posted in
 // LICENSE.txt and at <http://github.xcore.com/>
 
+//-*- mode: xc;-*-
+
 #ifndef __fifo_h__
 #define __fifo_h__
 

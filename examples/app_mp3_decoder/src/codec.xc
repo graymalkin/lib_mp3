@@ -2,7 +2,9 @@
  * codec.xc
  *
  *  Created on: 21 May 2015
- *      Author: simonc
+ *      Author: Simon Cooksey
+ *
+ *  -*- mode: xc;-*-
  */
 
 #include <i2c.h>

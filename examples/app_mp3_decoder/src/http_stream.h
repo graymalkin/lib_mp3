@@ -2,7 +2,9 @@
  * http_stream.h
  *
  *  Created on: 11 May 2015
- *      Author: simonc
+ *      Author: Simon Cooksey
+ *
+ *  -*- mode: xc;-*-
  */
 
 #ifndef HTTP_STREAM_H_
