@@ -93,6 +93,9 @@ enum mad_flow {
 	#define myprinthex(x) {;}
 #endif
 
-
+/**
+ * MP3 Decoder
+ */
+int mp3_decode(chanend mp3_chan, chanend pcm_chan);
 
 #endif

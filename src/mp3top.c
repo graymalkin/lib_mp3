@@ -211,6 +211,6 @@ int mp3_decode(chanend mp3_chan, chanend pcm_chan)
 
   mad_decoder_finish(&decoder);
 
-	mp3_finish(mp3_chan, pcm_chan, frameCount);
+  mp3_finish(mp3_chan, pcm_chan, frameCount);
   return result;
 }
