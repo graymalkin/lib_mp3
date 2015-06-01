@@ -175,11 +175,14 @@ int run_sync(struct mad_decoder *decoder) {
             dprintstr("decoder: mad_frame_decode\n");
 
 //scavanging few KBs by using the PCM buffer as a scratch board for III_decode, which consequentially makes it's stack smaller...
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
 #ifdef SAMPLES_16_BITS
             if (mad_frame_decode(frame, stream, (mad_fixed_t**)(&synth->pcm.scaled_samples)) == -1) {
 #else
             if (mad_frame_decode(frame, stream, (mad_fixed_t**)&synth->pcm.samples) == -1) {
 #endif
+#pragma clang diagnostic pop
                 dprintstr("decoder: mad_frame_decode returned -1.\n");
                 if (!MAD_RECOVERABLE(stream->error))
                     break;
