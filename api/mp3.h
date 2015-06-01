@@ -14,6 +14,7 @@
 * below. The modifications to the code are still covered by the
 * copyright notice above.
 *
+* -*- mode: xc;-*-
 **/
 
 #ifndef _MP3_H
