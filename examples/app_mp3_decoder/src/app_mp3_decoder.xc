@@ -27,11 +27,8 @@
 #include "app_mp3_decoder.h"
 #include "http_stream.h"
 
-fifo_t samples;
-
 static char gpio_pin_map[2] = {2, 1};
 
-on tile[1]: port dumpy = XS1_PORT_16A;
 int main() {
     chan chan_in, chan_out, chan_httpc;
     chan c_xtcp[1];
@@ -53,7 +50,7 @@ int main() {
         on tile[1]:demo(chan_in, chan_out, chan_httpc, i_fifo[0]);
         on tile[1]:i2c_master_single_port(i_i2c, 1, p_i2c, 100, 0, 1, 0x0);
         on tile[1]:output_gpio(i_gpio, 2, p_gpio, gpio_pin_map);
-        on tile[1]:i2s_server(i2s, i_i2c[0], i_gpio[0], i_gpio[1], dumpy, i_fifo[1]);
+        on tile[1]:i2s_server(i2s, i_i2c[0], i_gpio[0], i_gpio[1], i_fifo[1]);
         on tile[1]:[[distribute]]fifo(i_fifo);
 
         // The main ethernet/tcp server
@@ -131,8 +128,6 @@ int demo(chanend chan_mp3, chanend chan_pcm, chanend chan_httpc, client interfac
                     chan_httpc <: count;
 
                     chan_httpc :> result;
-//                    printstr("*** count: "); printintln(count);
-//                    printstr("*** read:  "); printintln(result);
 
                     if(result > 0) {
                         chan_mp3 <: _C_WRITE;
@@ -142,10 +137,10 @@ int demo(chanend chan_mp3, chanend chan_pcm, chanend chan_httpc, client interfac
                             chan_mp3 <: (unsigned)val;
                         }
                     }
-                    else
-                    {
-                        chan_mp3 <: _C_EOF;
-                    }
+//                    else
+//                    {
+//                        chan_mp3 <: _C_EOF;
+//                    }
                     break;
 
                 case _C_FINISH:

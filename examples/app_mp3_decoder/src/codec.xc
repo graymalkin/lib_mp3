@@ -85,7 +85,6 @@ void i2s_server(server i2s_callback_if i2s,
         client i2c_master_if i2c,
         client output_gpio_if codec_reset,
         client output_gpio_if clock_select,
-        port p_gpio,
         client interface fifo_if i_fifo)
 {
   while (1) {
