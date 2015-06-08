@@ -8,8 +8,13 @@ MP3 decoder library. Uses [Underbit Technolgies'
 MAD](http://www.underbit.com/products/mad/) mpeg audio decoder, which is under a
 GPLv2 license.
 
-*Caution*: The GPL license is restrictive. Exceptions to the license may be
-purchased from Underbit Technologies.
+*Caution*: The GPL license is restrictive, applications which use this library
+must be under a GPL compatible license. As dynamic linking is not an option, and
+that the library is likely to form a core part of any application built from it,
+there is no way to avoid this. Exceptions to the license may be purchased from
+Underbit Technologies in order to enable propietary use. These licenses should
+be purchased by customers wanting to use the library, as XMOS can't purchase an
+exception and sublicense it to customers.
 
 ### Features
 
