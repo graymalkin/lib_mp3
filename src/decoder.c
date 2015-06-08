@@ -43,8 +43,8 @@
 #endif
 
 /*
- * NAME:	decoder->init()
- * DESCRIPTION:	initialize a decoder object with callback routines
+ * NAME:        decoder->init()
+ * DESCRIPTION: initialize a decoder object with callback routines
  */
 void mad_decoder_init(struct mad_decoder *decoder, void *data,
         enum mad_flow (*input_func)(void *, struct mad_stream *),
@@ -250,8 +250,8 @@ static sync_struct global_sync;
 #endif
 
 /*
- * NAME:	decoder->run()
- * DESCRIPTION:	run the decoder
+ * NAME:        decoder->run()
+ * DESCRIPTION: run the decoder
  */
  #pragma stackfunction 1000 //words
 int mad_decoder_run(struct mad_decoder *decoder) {
