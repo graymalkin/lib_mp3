@@ -17,11 +17,10 @@ purchased from Underbit Technologies.
 
 ### Resource Usage
 
- * Single thread
- * 56kb memory 
+ * Single thread + input thread + output thread
+ * 60kb memory 
  * 1 channel of mp3 data in
  * 1 channel to consume pcm data out
-
 
 ### Software version and dependencies
 
@@ -32,7 +31,8 @@ Version 0.1.
 None.
 
 
-### Usage
+Usage
+-----
 
 There's some configuration in `mp3.h` which is important. Primarily the
 `SIZE_OF_FRAME` define.
@@ -63,7 +63,7 @@ samples (PCM) out on another. The channels have a simple communication protocol.
 int mp3_decode(chanend mp3_chan, chanend pcm_chan);
 ```
 
-#### mp3_chan
+### mp3_chan
 
 The decoder part _requests_ mp3 data. The program then replies with a write
 command followed by the number of bytes it plans to write, followed by the data.
@@ -105,7 +105,7 @@ switch(command)
 }
 ```
 
-#### pcm_chan
+### pcm_chan
 
 The decoder will output uncompressed audio data in PCM format. 
 
