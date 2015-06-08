@@ -34,10 +34,10 @@
 struct DATA {
   unsigned char *buffer;
   signed long length;
-	chanend mp3_chan;
-	chanend pcm_chan;
-	unsigned mp3_eof;
-	unsigned frameCount;
+        chanend mp3_chan;
+        chanend pcm_chan;
+        unsigned mp3_eof;
+        unsigned frameCount;
 };
 
 
@@ -103,8 +103,8 @@ enum mad_flow input(void *data, struct mad_stream *stream)
 
 int frameCount = 0;
 enum mad_flow output(void *data,
-		     struct mad_header const *header,
-		     struct mad_pcm *pcm)
+                     struct mad_header const *header,
+                     struct mad_pcm *pcm)
 {
 #ifdef SAMPLES_16_BITS
   signed short *scaled_left_ch, *scaled_right_ch;
@@ -123,23 +123,23 @@ enum mad_flow output(void *data,
 #ifdef SAMPLES_16_BITS
   scaled_left_ch = pcm->scaled_samples[0];
   scaled_right_ch = pcm->scaled_samples[1];
-	result = pcm_write(scaled_left_ch, scaled_right_ch,	nsamples, nchannels, dataPtr->pcm_chan);
+        result = pcm_write(scaled_left_ch, scaled_right_ch,     nsamples, nchannels, dataPtr->pcm_chan);
 #else
   left_ch   = pcm->samples[0];
   right_ch  = pcm->samples[1];
-	result = pcm_write(left_ch, right_ch,	nsamples, nchannels, dataPtr->pcm_chan);
+        result = pcm_write(left_ch, right_ch,   nsamples, nchannels, dataPtr->pcm_chan);
 #endif
 
-	frameCount++;
+        frameCount++;
 
-	mprintstr("mp3top: outputted frame #");
-	mprinthex(frameCount);
-	mprintstr(".\n");
+        mprintstr("mp3top: outputted frame #");
+        mprinthex(frameCount);
+        mprintstr(".\n");
 
-	if(result >= 0)
-		return MAD_FLOW_CONTINUE;
-	else
-		return MAD_FLOW_STOP;
+        if(result >= 0)
+                return MAD_FLOW_CONTINUE;
+        else
+                return MAD_FLOW_STOP;
 }
 
 /*
@@ -150,25 +150,25 @@ enum mad_flow output(void *data,
  */
 
 enum mad_flow error(void *data,
-		    struct mad_stream *stream,
-		    struct mad_frame *frame)
+                    struct mad_stream *stream,
+                    struct mad_frame *frame)
 {
 //  struct DATA *dataPtr = data;
-	mprintstr("mp3top: Error#");
-	mprinthex(stream->error);
-	mprintstr("\n");
+        mprintstr("mp3top: Error#");
+        mprinthex(stream->error);
+        mprintstr("\n");
 
   if(stream->error != MAD_ERROR_LOSTSYNC){
-  	mprintstr("mp3top: MAD_FLOW_BREAK\n");
-  	return MAD_FLOW_BREAK;
+        mprintstr("mp3top: MAD_FLOW_BREAK\n");
+        return MAD_FLOW_BREAK;
   }
   else {
-		mprintstr("mp3top: MAD_FLOW_CONTINUE\n");
+                mprintstr("mp3top: MAD_FLOW_CONTINUE\n");
 
     return MAD_FLOW_CONTINUE;
   }
 
-	return MAD_FLOW_CONTINUE;
+        return MAD_FLOW_CONTINUE;
 }
 
 /*
@@ -200,11 +200,11 @@ int mp3_decode(chanend mp3_chan, chanend pcm_chan)
 
   /* configure input, output, and error functions */
   mad_decoder_init(&decoder, &data,
-		           input, 0 /* header */, 0 /* filter */, output,
-		           error, 0 /* message */);
+                           input, 0 /* header */, 0 /* filter */, output,
+                           error, 0 /* message */);
 
   /* start decoding */
-	result = mad_decoder_run(&decoder);
+        result = mad_decoder_run(&decoder);
 
 
   /* release the decoder */
