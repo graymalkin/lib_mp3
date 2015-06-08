@@ -40,7 +40,7 @@
 #define MAX_RESERVOIR_SIZE 1023
 
 #ifdef SIM
-# define MAX_FRAME_SIZE 2880
+# define MAX_FRAME_SIZE 4660
 #else
 # define MAX_FRAME_SIZE 1440//1440
 #endif
@@ -103,4 +103,4 @@ int mp3_decode(chanend mp3_chan, chanend pcm_chan);
 int mp3_decode(unsigned mp3_chan, unsigned pcm_chan);
 #endif
 
-#endif
+#endif // _MP3_H
