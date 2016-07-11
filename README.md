@@ -12,7 +12,7 @@ GPLv2 license.
 must be under a GPL compatible license. As dynamic linking is not an option, and
 that the library is likely to form a core part of any application built from it,
 there is no way to avoid this. Exceptions to the license may be purchased from
-Underbit Technologies in order to enable propietary use. These licenses should
+Underbit Technologies in order to enable proprietary use. These licenses should
 be purchased by customers wanting to use the library, as XMOS can't purchase an
 exception and sublicense it to customers.
 
